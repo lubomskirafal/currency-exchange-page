@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+$breakpoints: (
+    xsmall:(min-width:460px),
+    small:(min-width:640px),
+    medium:(min-width:800px),
+    large:(min-width:1024px),
+    xlarge:(min-width:1200px),
+    xxlarge:(min-width:1440px),
+);
+
+$main-bgc: #fff;
+$main-fc: #222;
+$main-fz: 10px;
+$main-ff: 'Roboto';
+$second-ff: 'PT Sans Narrow';
+$hover-color: #eee;
+$main-box-shadow: #888;

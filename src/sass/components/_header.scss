@@ -1,0 +1,95 @@
+header {
+    position: relative;
+    top: 73px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity .4s;
+    opacity: 0;
+    z-index: 1;
+    overflow: hidden;
+    &::before {
+        position: absolute;
+        content: '';
+        width: 120%;
+        height: 110%;
+        background-color: rgba(255, 255, 255, .7);
+        z-index: -1;
+    }
+    .header {
+        position: relative;
+        height: 70vh;
+        z-index: 2;
+        &__title {
+            position: absolute;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: #fff;
+            width: 60px;
+            transform: translateY(-20px);
+            overflow: hidden;
+            box-shadow: 0 0 3px -1px $main-box-shadow;
+            @media all and(orientation: landscape) and (max-height: 500px) {
+                width: 35px;
+            }
+            & p {
+                text-transform: uppercase;
+                color: lighten($main-fc, 20%);
+                font-size: 2.4rem;
+                font-weight: 600;
+                letter-spacing: -5px;
+                font-family: $second-ff;
+                writing-mode: vertical-lr;
+                text-orientation: upright;
+                transform: translateY(20px);
+                &.slide {
+                    animation: moveTitle 5s ease-in infinite;
+                }
+                @media (min-width: 640px){
+                    font-size: 3rem;
+                }
+                @media all and(orientation: landscape) and (max-height: 500px) {
+                    font-size: 1.2rem;
+                }
+                @keyframes moveTitle {
+                    100%{transform: translateY(-20px);}
+                }
+            }
+        }
+        &__sign {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            right: 10px;
+            top: 15%;
+            width: 69vw;
+            text-align: right;
+            & p{
+                position: relative;
+                color: lighten($main-fc, 20%);
+                font-size: 1.2rem;
+                font-weight: bold;
+                line-height: 23px;
+                letter-spacing: 1px;
+                padding-right: 10px;
+                font-family: $second-ff;
+                max-width: 700px;
+                &.slide {
+                    animation: moveSign 5s ease-in infinite;
+                }
+                @include media(small) {
+                    font-size: 2rem;
+                    line-height: 35px;
+                }
+                @keyframes moveSign {
+                    100%{transform: translateX(-18px);}
+                }
+            }
+        }
+    }
+}

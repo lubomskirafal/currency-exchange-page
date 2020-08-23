@@ -1,0 +1,151 @@
+.calculator {
+    position: fixed;
+    top: 50%;
+    left:  50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    box-shadow: 0 0 2px 1px darken($main-box-shadow, 10%);
+    background-color: $main-bgc;
+    transition: z-index .3s, opacity .5s;
+    &--active {
+        z-index: 3;
+        opacity: 1;
+    }
+    
+    &__btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    &__box {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        @media (min-width: 900px) {
+            padding: 30px;
+        }
+    }
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        width: 100%;
+        font-size: 1rem;
+        
+        &--from {
+            margin-top: 30px;
+        
+        }
+        &-number {
+            padding: 5px;
+            border: 1px solid $main-box-shadow;
+            border-left: none;
+            text-align: center;
+            appearance: none;
+            height: 30px;
+            &::placeholder {
+                text-align: center;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 1px 1px $main-box-shadow;
+            }
+        }
+        &-select {
+            appearance: none;
+            padding: 5px;
+            border: 1px solid $main-box-shadow;
+            border-right: none;
+            background-color: $main-bgc;
+            height: 30px;
+            & option {
+                background-color: $main-bgc;
+                color: $main-fc;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &-number {
+            padding: 5px;
+            border: 1px solid $main-box-shadow;
+            border-left: none;
+        }
+        &-swapBtn {
+            margin: 20px 0;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $main-fc;
+            background-color: $main-bgc;
+            box-shadow: 0 0 1px 1px $main-box-shadow;
+            transform-origin: center;
+            transition:  box-shadow .3s, transform .3s;
+            &:hover {
+                cursor: pointer;
+            }
+            &:hover,
+            &:focus {
+                box-shadow: 0 0 2px 2px $main-box-shadow
+            }
+            &:active {
+                transform: scale(.95);
+                box-shadow: 0 0 2px -1px 
+            }
+        }
+    }
+    &__rate-info {
+        margin-top: 20px;
+        font-size: 1rem;
+        visibility: hidden;
+        transition: visibility .2s;
+        &--active {
+            visibility: visible;
+        }
+    }
+}
+.button {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: $main-bgc;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: box-shadow .3s;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 2px $main-box-shadow
+    }
+    &:focus,
+    &:active {
+        box-shadow: 0 0 2px $main-box-shadow;
+    }
+    &__box {
+        &::before,
+        &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 2px;
+        background-color: lighten($main-fc, 20%);
+        transform-origin: center;
+        transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+    
+}

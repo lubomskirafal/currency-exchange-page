@@ -1,0 +1,178 @@
+.cookies {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -200vh);
+    z-index: 9999;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    height: 95%;
+    max-width: 1200px;
+    overflow: auto;
+    box-shadow: 0 0  30px -10px #aaa;
+    font-size: 0.8rem;
+    text-align: center;
+    color: $main-fc;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, transform .3s;
+    
+    &--active {
+        visibility: visible;
+        transform: translate(-50%, -51%);
+        opacity: 1;
+    }
+    @include media(medium) {
+        font-size: 1rem;
+        
+    }
+    h5,h6 {
+        color: $main-fc;
+        text-align: center;
+    }
+
+    h5 {
+        font-size: 1rem;
+        @include media(small) {
+            font-size: 1.3rem;
+        }
+        @include media(medium) {
+            font-size: 1.6rem;
+        }
+        @include media(xlarge) {
+            font-size: 2rem;
+        }
+    }
+    h6 {
+        font-size: 0.8rem;
+        @include media(small) {
+            font-size: 1rem;
+        }
+        @include media(medium) {
+            font-size: 1.3rem;
+        }
+        @include media(xlarge) {
+            font-size: 1.5rem;
+        }
+    }
+    ul {
+        list-style: none;
+        text-align: left;
+        padding: 0;
+        &#zewnetrzne{
+            text-align: center;
+        }
+    }
+    .closeBtn {
+        position: absolute;
+        right: 0;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        border-radius: 50%;
+        &:hover {
+            cursor: pointer;
+            .closeBtn__box {
+                box-shadow: 0 0 10px 1px #bbf;
+            }
+        }
+        &:focus {
+            box-shadow: 0 0 2px #bbf;
+            
+        }
+        &__box {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: lighten($main-fc,20%);
+            overflow: hidden;
+            transition: box-shadow .2s;
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 16%;
+                width: 70%;
+                height: 2px;
+                transform-origin: center;
+                background-color: #fff;
+                transition: transform .3s;
+            }
+            
+            &::before {
+                transform:  rotate(45deg) translateY(-50%);
+            }
+            &::after {
+                transform:  rotate(-45deg) translateY(-50%);
+            }
+        }
+    }
+}
+
+.cookies-message__container {
+    position: fixed;
+    bottom: 20%;
+    right: 0;
+    width: 99%;
+    max-width: 600px;
+    z-index: 5;
+    background-color: #fff;
+    color: $main-fc;
+    box-shadow: 0 0 2px 1px lighten($main-fc, 40%);
+    transition: transform .5s;
+    transform: translate(110%);
+    &--active{
+        transform: translateX(0)
+    }
+    #cookies-message__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+        font-size: 1rem;
+        & div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            @include media (medium) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            & button {
+                border: 1px solid lighten($main-fc, 40%);
+                padding: 5px 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                justify-self: flex-end;
+                color: $main-fc;
+                background-color: transparent;
+                outline: none;
+                width: 170px;
+                transition: color .3s, background-color .3s;
+                @include media (medium) {
+                    
+                    &{
+                        margin: 0 10px 0 0;
+                    }
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+                &:hover,
+                &:focus {
+                    background-color: $hover-color;            
+                }
+            }
+        }
+    }
+}

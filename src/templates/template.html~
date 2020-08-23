@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatibile" content="IE=edge">
+    <title>Mój Kantor</title>
+    <meta name="description" content="Kantor wymiany walut w Toruniu. Zawsze aktualne wyceny">
+    <meta name="keywords" content="kantor, wymiana, walut, waluta, usd, pln, eur, chf, online, kurs, bank, trouń, torun">
+    <meta name="robots" content="follow, index">
+    <meta name="author" content="Rafal Lubomski">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="data/site.webmanifest">
+    <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#fff">
+    <meta property="og:url" content="www.moj-kantor.pl">
+    <meta property="og:title" content="Mój Kantor">
+    <meta property="media-image" content="images/bank-note-941246_640-min.jpg">
+    <meta property="ogimage:width" content="200px">
+    <meta property="og:description" content="Kantor wymiany walut w Toruniu. Zawsze aktualne wyceny">
+    <meta property="og:type" content="webpage">
+  </head>
+
+  <body>
+    <nav>
+          <div class="wrapper">
+    
+            <div class="manu">
+              
+              <div class="manu__head">
+    
+                <div class="logo">
+                  <h2><a href="index.html"><img src="images/favicons/safari-pinned-tab.svg">moj-kantor.pl</a></h2>
+                </div>
+
+                <button class="hamburger">
+                  <div class="hamburger__box">
+                    <span class="hamburger__inner"></span>
+                  </div>
+                </button>
+
+              </div>
+      
+              <div class="manu__list">
+                <ul>
+                  <li class="manu__list-item"><button data-target=".header" class="manu__list-item-link">Home</button></li>
+                  <li class="manu__list-item"><button data-target=".about" class="manu__list-item-link">O nas</button></li>
+                  <li class="manu__list-item"><button data-target=".flag" class="manu__list-item-link">Waluty</a></li>
+                  <li class="manu__list-item"><button class="calculatorManuBtn">Kalkulator</button></li>
+                  <li class="manu__list-item"><a href="mailto:kontakt@moj-kantor.pl" class="manu__list-item-link">Kontakt</a></li>
+                </ul>
+              </div>
+            </div>
+    
+          </div>
+    </nav>
+
+    <header>
+      <div class="wrapper">
+        <div class="header">
+          <div class="header__title">
+            <p></p>  
+          </div>
+          <div class="header__sign">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="wrapper">
+        <section class="about">
+          <div class="about__title">
+            <h2>Dlaczego nasz kantor?</h2>
+          </div>
+          <div class="about__content">
+            <div class="about__content-title">
+              <p>Szybka transakcja</p>
+            </div>
+            <div class="about__content-wrapper">
+              <img class="about__content-img" src="images/chronograph-160753_640-min.png" alt="szybka transakcja">
+              <p class="about__content-txt">Posiadamy cztery stanowiska i dwa bezpieczne pomieszczenia, dla transakcji ponadprogowych. Przelewy zamówione przed godziną 11:00, są realizowane tego samego dnia.</p>
+            </div>
+          </div>
+
+          <div class="about__content">
+          <div class="about__content-title">
+              <p>Oszczędność</p>
+            </div>
+            <div class="about__content-wrapper">
+              <img class="about__content-img" src="images/piggy-bank-712593_640-min.png" alt="niska prowizja">
+              <p class="about__content-txt">Płatności dokonywane gotówką na miejscu oraz przelewy krajowe są zwolnione z prowizji. Opłaty za przelewy międzynarodowe wynoszą 3 PLN za transakcje w EUR i 5 PLN w pozostałych walutach. </p>
+            </div>
+          </div>
+
+          <div class="about__content">
+          <div class="about__content-title">
+              <p>Bezpieczeństwo</p>
+            </div>
+            <div class="about__content-wrapper">
+              <img class="about__content-img" src="images/lock-152879_640-min.png" alt="bezpieczeństwo">
+              <p class="about__content-txt"> Dbamy o Państwa bezpieczeństwo dzięki zabezpieczeniom internetowym oraz kapitałowym.
+              W przypadku transakcji ponadprogowych na miejscu, udostępniamy bezpieczne pomieszczenie.
+              Gotówka za przelew. Przelew za gotówkę.
+              </p>
+            </div>
+          </div>
+        </section>
+        <div class="flag"></div>
+        <section class="currencys">
+          <div class="currencys__title">
+            <h2>Waluty</h2>
+            <p>Aktualizacja <span id="timeStamp"></span></p>
+          </div>
+          <div class="currencys__table">
+            <table id="table">
+              <tr>
+                <thead>
+                  <th>Flaga</th>
+                  <th>Nazwa</th>
+                  <th>Symbol</th>
+                  <th>Kupno</th>
+                  <th>Sprzedaż</th>
+                </thead>
+              </tr>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div>
+      <div class="wrapper">
+        <div class="calculator">
+            <button class="calculator__btn button">
+              <div class="button__box"></div>
+            </button>
+          <div class="calculator__box">
+            <form class="calculator__form calculator__form--from">
+              <select name="from" id="from" class="calculator__form-select calculator__form-select--from"></select>
+              <input type="number" name="number-from" id="number-from" class="calculator__form-number calculator__form-number--from" placeholder="Podaj wartość">
+            </form>
+            <button class="calculator__form-swapBtn">zamień </button>
+            <form class="calculator__form calculator__form--to">
+              <select name="to" id="to" class="calculator__form-select calculator__form-select--to"></select>
+              <input disabled type="number" name="number-to" id="number-to" class="calculator__form-number calculator__form-number--to">
+            </form>
+            <p class="calculator__rate-info">1<span class="claculator__rate-info claculator__rate-info--from"></span><span class="claculator__rate-info claculator__rate-info--to"></span></p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="wrapper">
+        <div class="header">
+            <div class="header__title">
+              <p>zapraszamy</p>
+            </div>
+            <div class="header__opening">
+              <ul>
+                <li>Poniedziałek <span>08:00-22:00</span></li>
+                <li>Wtorek <span>08:00-22:00</span></li>
+                <li>Środa <span>08:00-22:00</span></li>
+                <li>Czwartek <span>08:00-22:00</span></li>
+                <li>Piątek <span>08:00-22:00</span></li>
+                <li>Sobota <span>08:00-22:00</span></li>
+                <li>Niedziela <span>Zamknięte</span></li>
+              </ul>
+            </div>
+            <div class="header__contact">
+              <ul>
+                <li><address>moj-kantor <a href="https://www.google.pl/maps/search/ul.+Marka+Aureliusza+13%2F17+Toru%C5%84/@53.013372,18.5315092,12z/data=!3m1!4b1" target="blank">Ul.Marka Aureliusza 13/17, 87-100 Toruń</a></address></li>
+                <li><address><a href="tel:2343567234">tel: 2343567234</a></address></li>
+                <li><address><a href="mailto:kontakt@moj-kantor.pl">kontakt@moj-kantor.pl</a></address></li>
+              </ul>
+            </div>
+          </div>
+        <div class="footer">
+          <div class="copy">
+            <p>
+              Copyrights <sup>&copy</sup> <a href="https://moj-kantor.pl">moj-kantor.pl</a>
+            </p>
+          </div>
+          <div class="madeby">
+            <p>Wykonanie</p>
+            <div class="made-by-logo">
+                <a href="https://lubomskirafal.pl" target="blank"><img src="images/safari-pinned-tab.svg"> Lubomski</a>
+            </div>
+          </div>
+          <button class="showCookieBtn">Regulamin</button>
+        </div>
+      </div>
+    </footer>
+    <div class="cookies-message__container">
+      <div id="cookies-message__content">
+        <p>Ta strona używa ciasteczek. Pozostając na stronie, godzisz się na regulamin serwisu, zapisywanie i odczyt danych z twojej przeglądarki. </p>
+        <div>
+          <button class="cookie-message__button cookie-message__button--seaMore">Dowiedz się więcej</button><button id="accept-cookies-checkbox" name="accept-cookies">Rozumiem</button>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper cookies__wrapper">
+        <div class="cookies">
+          <p>Strona ma charakter informacyjny i stanowi formę prezentacji przykładowego szablonu strony internetowej. Właściciel strony nie prowadzi żadnej działalnośći komercyjnej z dziedziny finansów i obrotu walutowego. Zbieżnosć nazw, adresów i innych danych przypadkowa. Prezentowane dane bankowe pochodzą z publicznego źródła NBP i EBC. Dane bankowe nie stanowią oferty handlowej.</p>
+          <h5>Polityka Cookies</h5>
+          <p>Poniższa Polityka Cookies określa zasady zapisywania i uzyskiwania dostępu do danych na Urządzeniach Użytkowników korzystających z Serwisu do celów świadczenia usług drogą elektroniczną przez Administratora Serwisu.</p>
+  
+          <h6>§ 1 Definicje</h6>
+          <ul>
+              <li>
+                  <p><strong>Serwis</strong> - serwisy internetowy działający pod adresem www.moj-kantor.pl</p>
+              </li>
+              <li>
+                  <p><strong>Serwis zewnętrzny</strong> - serwis internetowe partnerów, usługodawców lub usługobiorców Administratora</p>
+              </li>
+              <li>
+                  <p><strong>Administrator</strong> 
+                      osoba fizyczna przechowująca i uzyskująca dostęp do informacji w urządzeniach Użytkownika</p>
+              </li>
+              <li>
+                  <p><strong>Użytkownik</strong> - osba fizyczna, dla której Administrator świadczy usługi drogą elektroniczna za pośrednictwem Serwisu.</p>
+              </li>
+              <li>
+                  <p><strong>Urządzenie</strong> - elektroniczne urządzenie wraz z oprogramowaniem, za pośrednictwem, którego Użytkownik uzyskuje dostęp do Serwisu</p>
+              </li>
+              <li>
+                  <p><strong>Cookies (ciasteczka)</strong> - dane tekstowe gromadzone w formie plików zamieszczanych na Urządzeniu Użytkownika</p>
+              </li>
+          </ul>
+          <h6>§ 2 Rodzaje Cookies</h6>
+          <ul>
+              <li>
+                  <p><strong>Cookies wewnętrzne</strong> - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przes system teleinformatyczny Serwisu</p>
+              </li>
+              <li>
+                  <p><strong>Cookies zewnętrzne</strong> - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez systemy teleinformatyczne Serwisów zewnętrznych</p>
+              </li>
+              <li>
+                  <p><strong>Cookies sesyjne</strong> - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez Serwis <span id="sz1">lub Serwisy zewnętrzne</span> podczas jednej sesji danego Urządzenia. Po zakończeniu
+                      sesji pliki są usuwane z Urządzenia Użytkownika.</p>
+              </li>
+              <li>
+                  <p><strong>Cookies trwałe</strong> - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez Serwis <span id="sz2">lub Serwisy zewnętrzne</span> do momentu ich ręcznego usunięcia. Pliki nie są usuwane
+                      automatycznie po zakończeniu sesji Urządzenia chyba że konfiguracja Urządzenia Użytkownika jest ustawiona na tryb usuwanie plików Cookie po zakończeniu sesji Urządzenia.</p>
+              </li>
+          </ul>
+  
+          <h6>§ 3 Bezpieczeństwo</h6>
+          <ul>
+              <li>
+                  <p><strong>Mechanizmy składowania i odczytu</strong> - Mechanizmy składowania i odczytu Cookies nie pozwalają na pobierania jakichkolwiek danych osobowych ani żadnych informacji poufnych z Urządzenia Użytkownika. Przeniesienie na Urządzenie
+                      Użytkownika wirusów, koni trojańskich oraz innych robaków jest praktynie niemożliwe.</p>
+              </li>
+              <li>
+                  <p><strong>Cookie wewnętrzne</strong> - zastosowane przez Administratora Cookie wewnętrzne są bezpieczne dla Urządzeń Użytkowników</p>
+              </li>
+              <li>
+                  <p><strong>Cookie zewnętrzne</strong> - za bezpieczeństwo plików Cookie pochodzących od partnerów Serwisu Administrator nie ponosi odpowiedzialności. Lista partnerów zamieszczona jest w dalszej części Polityki Cookie.</p>
+              </li>
+          </ul>
+  
+          <h6>§ 4 Cele do których wykorzystywane są pliki Cookie</h6>
+          <ul id="cele">
+              <li>
+                  <p><strong><span class="colored">Usprawnienie i ułatwienie dostępu do Serwisu</span></strong> - Administrator może przechowywać w plikach Cookie informacje o prefernecjach i ustawieniach użytkownika dotyczących Serwisu aby usprawnić,
+                      polepszyć i przyśpieszyć świadczenie usług w ramach Serwisu.</p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Logowanie</span></strong> - Administrator wykorzystuje pliki Cookie do celów logowania Użytkowników w Serwisie</p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Marketing i reklama</span></strong> - Administrator <span id="sz3">oraz Serwisy zewnętrzne</span> wykorzystują pliki Cookie do celów marketingowych oraz serwowania reklam Użytkowników.</p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Dane statystyczne</span></strong> - Administrator <span id="sz4">oraz Serwisy zewnętrzne</span> wykorzystuje pliki Cookie do zbierania i przetwarzania danych statystycznych takich
+                      jak np. statystyki odwiedzin, statystyki Urządzeń Użytkowników czy statystyki zachowań użytkowników. Dane te zbierane są w celu analizy i ulepszania Serwisu.</p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Serwowanie usług multimedialnych</span></strong> - Administrator <span id="sz5">oraz Serwisy zewnętrzne</span> wykorzystuje pliki Cookie do serwowania Użytkownikom usług multimedialnych.</p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Usługi społecznościowe</span></strong> - Administrator <span id="sz7">oraz Serwisy zewnętrzne</span> wykorzystują pliki Cookie do wsparcia usług społecznościowych</p>
+              </li>
+          </ul>
+          <h6>§ 5 Serwisy zewnętrzne</h6>
+          <p id="zewinfo"><span class="colored">Administrator współpracuje z następującymi serwisami zewnętrznymi, które mogą zamieszczać pliki Cookie na Urządzeniach Użytkownika:</span></p>
+          <ul id="zewnetrzne">
+              <li>
+                  <p><strong><span class="colored">Google Analytics</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Google AdSense</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Google AdWords</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Google+</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Facebook</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Twitter</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">AddThis</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Youtube</span></strong></p>
+              </li>
+              <li>
+                  <p><strong><span class="colored">Vimeo</span></strong></p>
+              </li>
+          </ul>
+          <h6>§ 6 Możliwości określania warunków przechowywania i uzyskiwania dostępu na Urządzeniach Użytkownika przez Serwis<span> i Serwisy zewnętrzne</span></h6>
+          <ul>
+              <li>
+                  <p>Użytkownik może w dowolnym momencie, samodzielnie zmienić ustawienia dotyczące zapisywania, usuwania oraz dostępu do danych zapisanych plików Cookies</p>
+              </li>
+  
+              <li>
+                  <p>Użytkownik może w dowolnym momencie usunąć wszelkie zapisane do tej pory pliki Cookie korzystając z narzędzi Urządzenia Użytkownika za pośrednictwem którego Użytkownik korzysta z usług Serwisu.</p>
+              </li>
+          </ul>
+          <h6>§ 7 Wymagania Serwisu</h6>
+          <ul>
+              <li>
+                  <p>Ograniczenie zapisu i dostępu do plików Cookie na Urządzeniu Użytkownika może spowodować nieprawidłowe działanie niektórych funkcji Serwisu.</p>
+              </li>
+              <li>
+                  <p>Administrator nie ponosi żadnej odpowiedzialności za nieprawidłowo działające funkcje Serwisu w przypadku gdy Użytkownik ograniczy w jakikolwiek sposób możliwość zapisywania i odczytu plików Cookie.</p>
+              </li>
+          </ul>
+          <h6>§ 8 Zmiany w Polityce Cookie</h6>
+          <ul>
+              <li>
+                  <p>Administrator zastrzega sobie prawo do dowolnej zmiany niniejszej Polityki Cookie bez konieczności informowania o tym użytkowników.</p>
+              </li>
+              <li>
+                  <p>Wprowadzone zmiany w Polityce Cookie zawsze będą publikowane na tej stronie.</p>
+              </li>
+              <li>
+                  <p>Wprowadzone zmiany wchodzą w życie w dniu publikacji Polityki Cookie.</p>
+              </li>
+          </ul>
+          <button class="closeBtn">
+            <div class="closeBtn__box">
+              
+            </div>
+          </button>
+    </div>
+    <button class="goTopBtn" data-target="nav">
+      <div class="goTopBtn__box"></div>
+    </button>
+  </body>
+
+</html>

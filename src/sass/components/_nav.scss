@@ -1,0 +1,147 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background-color: rgba( 100,100,100, .5);
+    box-shadow: 0 4px 5px -3px lighten($main-box-shadow, 20%);
+    transition: transform .3s;
+    background-color:$main-bgc;
+    
+}
+
+.manu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include media(xlarge) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+        
+        @include media(xlarge) {
+            padding: 0;
+            width: 20%;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    
+    &__list {
+        position: absolute;
+        left: 0;
+        top: 70px;
+        width: 100%;
+        overflow: hidden; 
+        transition: transform .5s, opacity .5s;
+        height: 100vh;
+        background-color: $main-bgc;
+        transform: translateY(-200vh);
+        opacity: 0;
+        z-index: -1;
+        &--active {
+            transform: translateY(0);
+            opacity: 1;
+         }
+        @include media(xlarge) {
+            position: relative;
+            top: 0;
+            transition: transform 0s;
+            width: 60%;
+            background-color: transparent;
+            height: 100%;
+            transform: translateY(0);
+            opacity: 1;
+            z-index: 0;
+        }    
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            list-style: none;
+            width: 100%;
+            
+            padding:0;
+            background-color: #fff;
+            
+            @include media(xlarge) {
+                padding: 0 5px;
+                flex-direction: row;
+                background-color: transparent;
+            }
+        }
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 2px 0;
+            @include media (xlarge) {
+                margin: 0;
+                margin-right: 5px;
+                border-radius: 5px;
+                background-color: transparent;
+            }
+            button,
+            a {
+                text-align: center;
+                padding: 10px 5px;
+                color: $main-fc;
+                font-size: 1.3rem;
+                width: 100%;
+                transition: background-color .2s ease-in, color .2s ease-in;
+                outline: none;
+                border: none;
+                background-color: $main-bgc;
+                
+                &:hover {
+                    cursor: pointer;
+                }
+                &:focus,
+                &:hover {
+                    background-color: $hover-color;
+                }
+                @include media(xlarge) {
+                    border-radius: 5px;
+                    color: $main-fc;
+                    transition: box-shadow .3s;
+                    background-color: transparent;
+                    &::after {
+                        content: '';
+                        display: block;
+                        height: 1px;
+                        width: 100%;
+                        transform-origin: center;
+                        transform: scale(0);
+                        transition: transform .4s;
+                        background-color: $main-fc;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background-color: transparent;
+                        &::after {
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

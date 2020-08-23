@@ -1,0 +1,123 @@
+.currencys {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 2;
+    background-color: $main-bgc;
+    box-shadow: 0 0 3px -1px $main-box-shadow;
+    color: lighten($main-fc, 20%);
+    @media (min-width: 900px) {
+        margin: 0 0 150px 0;
+        top: -100px;
+        left:  -1%;
+        max-width: 90%;
+        height: 800px;
+    }
+    &__title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 0;
+        background-color: $main-bgc;
+        margin-bottom: 50px;
+        box-shadow: 0 0 3px -1px $main-box-shadow;
+        
+        @include media(small) {
+            max-width: 600px;
+        }
+        
+        h2 {
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-weight: 100;
+            font-family: $second-ff;
+            margin: 0 20px;
+            @include media(medium) {
+                font-size: 2rem;
+            }
+            
+        }
+        p {
+            text-align: center;
+            margin: 0 20px;
+            color: lighten($main-fc, 50%);
+        }
+        @media (min-width: 900px) {
+            transform: translate(40px, -50px);
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            width: 50px;
+            padding: 20px 0;
+            height: 70%;
+            & h2{
+                letter-spacing: -5px;
+            }
+        }
+    }
+    &__table {
+        max-width: 80%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        @media (min-width: 900px) {
+            position: absolute;
+            transform: translateX(-37%);
+            top: 100px;
+            right: 0;
+            width: 80%;
+            height: 600px;
+            overflow: auto;
+        }
+       
+        table {
+            height: 100%;
+            text-align: center;
+            width: 90%;
+            font-size: 1rem;
+            border-collapse: collapse;
+            @media (min-width:900px){
+                position: relative;
+                top: 500px;
+            }
+            img {
+                width: 23px;
+            }
+        }
+        th,
+        td {
+            padding: 2px;
+            font-size: .8rem;
+            @include media(medium) {
+                padding: 5px;
+                font-size: 1rem;
+            }
+            
+        }
+        tr{
+            border-bottom:  1px solid #aaa;
+            transition: color .3s;
+            &:hover {
+                cursor: pointer;
+                background-color: $hover-color;
+            }
+        }
+        #td-name {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 100%;
+            @media (min-width: 500px) {
+                width: 100%;
+            }
+        }
+    }
+}

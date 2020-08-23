@@ -1,0 +1,33 @@
+@import '../../node_modules/normalize.css/normalize.css';
+
+@import './components/_reset';
+@import './components/variables';
+@import './components/mixins';
+@import './components/typography';
+@import './components/_cookies';
+@import './components/scrollBar';
+@import './components/hamburger';
+@import './components/logo';
+@import './components/nav';
+@import './components/header';
+@import './components/about';
+@import './components/currencys';
+@import './components/made-by-logo';
+@import './components/calculator';
+@import './components/goTopBtn';
+@import './components/footer';
+
+body {
+    position: relative;
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+    
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+   
+}

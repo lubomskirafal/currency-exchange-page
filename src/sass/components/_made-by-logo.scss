@@ -1,0 +1,43 @@
+.made-by-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        font-family: $second-ff,Arial, sans-serif;
+        color: $main-fc;
+        font-size: 1.1rem;
+        font-weight: normal;
+        outline: none;
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            content: '';
+            width: 70%;
+            height: 1px;
+            display: block;
+            transform: scaleX(0);
+            transform-origin: center;
+            background-color: $main-fc;
+            transition: transform .7s;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        &:hover,
+        &:focus {
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+    img {
+        width: 20px;
+        margin-right: 5px;
+    }
+}
